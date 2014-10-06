@@ -1,4 +1,27 @@
 language: cpp
 before_install:
   - sudo apt-get update -qq
-  - uname -a
+  - sudo apt-get purge openjdk-\* icedtea-\* icedtea6-\*
+install:
+  - sudo apt-get install openjdk-7-jdk
+  - sudo apt-get install gcc-multilib mingw32-binutils
+  - sudo apt-get install git gnupg flex bison gperf build-essential
+  - sudo apt-get install zip curl libc6-dev libncurses5-dev:i386
+  - sudo apt-get install x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386
+  - sudo apt-get install libgl1-mesa-dev g++-multilib mingw32 tofrodos
+  - sudo apt-get install python-markdown libxml2-utils xsltproc zlib1g-dev:i386
+  - sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
+before_script:
+  - export USE_CCACHE=1
+  - mkdir -p ~/bin
+  - PATH=~/bin:$PATH
+  - curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+  - chmod a+x ~/bin/repo
+script:
+  - mkdir -p COT3
+  - cd COT3
+  - repo init -u https://github.com/ProjectOpenCannibal/android.git -b kitkat
+  - repo sync -j16
+  - source build/envsetup.sh
+  - lunch cm_hammerhead-userdebug
+  - make -j7 recoveryimage
