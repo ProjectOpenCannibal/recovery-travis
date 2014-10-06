@@ -20,6 +20,8 @@ before_script:
 script:
   - mkdir -p COT3
   - cd COT3
+  - git config --global user.email "drewwalton19216801@gmail.com"
+  - git config --global user.name "Drew Walton"
   - repo init -u https://github.com/ProjectOpenCannibal/android.git -b kitkat
   - repo sync -j16
   - source build/envsetup.sh
