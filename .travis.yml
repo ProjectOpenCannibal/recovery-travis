@@ -1,3 +1,4 @@
+language: cpp
 before_install:
   - sudo apt-get update -qq
   - uname -a
