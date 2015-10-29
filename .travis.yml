@@ -26,4 +26,4 @@ script:
   - repo sync -j16
   - source build/envsetup.sh
   - lunch cm_hammerhead-userdebug
-  - make -j7 recoveryimage
+  - make -j7 mako
