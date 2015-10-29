@@ -25,5 +25,5 @@ script:
   - repo init -u https://github.com/ProjectOpenCannibal/android.git -b kitkat
   - repo sync -j16
   - source build/envsetup.sh
-  - lunch cm_hammerhead-userdebug
-  - make -j7 mako
+  - lunch cm_mako-userdebug
+  - make -j7 recoveryimage
