@@ -1,7 +1,6 @@
 language: cpp
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get purge openjdk-\* icedtea-\* icedtea6-\*
 install:
   - sudo apt-get install openjdk-7-jdk
   - sudo apt-get install gcc-multilib mingw32-binutils
@@ -22,6 +21,10 @@ script:
   - cd COT3
   - git config --global user.email "drewwalton19216801@gmail.com"
   - git config --global user.name "Drew Walton"
+  - git config --global color.branch auto
+  - git config --global color.diff auto
+  - git config --global color.interactive auto
+  - git config --global color.status auto
   - repo init -u https://github.com/ProjectOpenCannibal/android.git -b kitkat
   - repo sync -j16
   - source build/envsetup.sh
