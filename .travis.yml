@@ -25,7 +25,7 @@ script:
   - git config --global color.diff auto
   - git config --global color.interactive auto
   - git config --global color.status auto
-  - repo init -u htts://github.com/CyanogenMod/android.git -b cm-12.1
+  - repo init -u https://github.com/CyanogenMod/android.git -b cm-12.1
   - repo sync -j8
   - git clone git@github.com:TheMuppets/proprietary_vendor_huawei.git vendor/huawei
   - source build/envsetup.sh
